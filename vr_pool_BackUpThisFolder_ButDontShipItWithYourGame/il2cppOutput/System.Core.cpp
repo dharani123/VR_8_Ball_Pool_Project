@@ -64,6 +64,8 @@ struct EntryU5BU5D_tABE5D88DE8F1BBE54F967154D37629245FCD613A;
 struct ByteU5BU5D_tA6237BF417AE52AD70CFB4EF24A7A82613DF9031;
 // System.Runtime.CompilerServices.Ephemeron[]
 struct EphemeronU5BU5D_t4F80428A1142C3102C946127F8190063001742E8;
+// System.Int32[]
+struct Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C;
 // System.IntPtr[]
 struct IntPtrU5BU5D_tFD177F8C806A6921AD7150264CCC62FA00CAD832;
 // System.Diagnostics.StackTrace[]
@@ -74,6 +76,8 @@ struct StringU5BU5D_t7674CD946EC0CE7B3AE0BE70E6EE85F2ECD9F248;
 struct ArgumentNullException_t327031E412FAB2351B0022DD5DAD47E67E597129;
 // System.ArgumentOutOfRangeException
 struct ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F;
+// System.Collections.Generic.BitHelper
+struct BitHelper_t2BEA51BB52EB1672DBF4163ED6757DCEEB3A4DF1;
 // System.Globalization.Calendar
 struct Calendar_t0A117CC7532A54C17188C2EFEA1F79DB20DF3A3B;
 // System.Globalization.CompareInfo
@@ -92,6 +96,8 @@ struct Expression_t70AA908ECBD33E94249BF235E4EBB0F831AD8785;
 struct IDictionary_t6D03155AF1FA9083817AA5B6AD7DEEACC26AB220;
 // System.IFormatProvider
 struct IFormatProvider_tC202922D43BFF3525109ABF3FB79625F5646AB52;
+// System.Int32
+struct Int32_t680FF22E76F6EFAD4375103CBBFFA0421349384C;
 // System.InvalidOperationException
 struct InvalidOperationException_t5DDE4D49B7405FAAB1E4576F4715A42A3FAD4BAB;
 // System.Linq.Expressions.LambdaExpression
@@ -144,6 +150,7 @@ struct CultureInfo_t9BA817D41AD55AC8BD07480DD8AC22F8FFA378E0_marshaled_pinvoke;
 struct Exception_t_marshaled_com;
 struct Exception_t_marshaled_pinvoke;
 
+struct Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C;
 
 IL2CPP_EXTERN_C_BEGIN
 IL2CPP_EXTERN_C_END
@@ -179,6 +186,19 @@ struct ConditionalWeakTable_2_t0F3FDA57EE333DF8B8C1F3FB944E4E19C5DDCFC7  : publi
 	int32_t ___size_6;
 };
 struct Il2CppArrayBounds;
+
+// System.Collections.Generic.BitHelper
+struct BitHelper_t2BEA51BB52EB1672DBF4163ED6757DCEEB3A4DF1  : public RuntimeObject
+{
+	// System.Int32 System.Collections.Generic.BitHelper::_length
+	int32_t ____length_0;
+	// System.Int32* System.Collections.Generic.BitHelper::_arrayPtr
+	int32_t* ____arrayPtr_1;
+	// System.Int32[] System.Collections.Generic.BitHelper::_array
+	Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* ____array_2;
+	// System.Boolean System.Collections.Generic.BitHelper::_useStackAlloc
+	bool ____useStackAlloc_3;
+};
 
 // System.Dynamic.Utils.ContractUtils
 struct ContractUtils_tFD5BFE68866F22438D49EF2D69CC0BE6FFF726EC  : public RuntimeObject
@@ -601,6 +621,39 @@ struct ArgumentOutOfRangeException_tEA2822DAF62B10EEED00E0E3A341D4BAF78CF85F  : 
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
+// System.Int32[]
+struct Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C  : public RuntimeArray
+{
+	ALIGN_FIELD (8) int32_t m_Items[1];
+
+	inline int32_t GetAt(il2cpp_array_size_t index) const
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items[index];
+	}
+	inline int32_t* GetAddressAt(il2cpp_array_size_t index)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		return m_Items + index;
+	}
+	inline void SetAt(il2cpp_array_size_t index, int32_t value)
+	{
+		IL2CPP_ARRAY_BOUNDS_CHECK(index, (uint32_t)(this)->max_length);
+		m_Items[index] = value;
+	}
+	inline int32_t GetAtUnchecked(il2cpp_array_size_t index) const
+	{
+		return m_Items[index];
+	}
+	inline int32_t* GetAddressAtUnchecked(il2cpp_array_size_t index)
+	{
+		return m_Items + index;
+	}
+	inline void SetAtUnchecked(il2cpp_array_size_t index, int32_t value)
+	{
+		m_Items[index] = value;
+	}
+};
 
 
 // System.Boolean System.Runtime.CompilerServices.ConditionalWeakTable`2<System.Object,System.Object>::TryGetValue(TKey,TValue&)
@@ -640,6 +693,8 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* Strings_ExtensionNodeMustOverridePr
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t* ContractUtils_get_Unreachable_m792F83C753CCE84550E4F0442CDC49B978FD0CE6 (const RuntimeMethod* method) ;
 // System.String SR::Format(System.String,System.Object)
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR String_t* SR_Format_m7198B645F5C0A5E33F30AEF003C1F1D1415A9F86 (String_t* ___resourceFormat0, RuntimeObject* ___p11, const RuntimeMethod* method) ;
+// System.Void System.Object::.ctor()
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2 (RuntimeObject* __this, const RuntimeMethod* method) ;
 #ifdef __clang__
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Winvalid-offsetof"
@@ -1283,6 +1338,172 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR Exception_t* ContractUtils_get_Unreachable_m7
 		NullCheck(L_0);
 		InvalidOperationException__ctor_mE4CB6F4712AB6D99A2358FBAE2E052B3EE976162(L_0, _stringLiteral656DE8865223883D9C605D63606CD7138CF8CAD3, NULL);
 		return L_0;
+	}
+}
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
+// System.Void System.Collections.Generic.BitHelper::.ctor(System.Int32*,System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BitHelper__ctor_m141F24AE9FFCB3EA3D2C7EA79BDAC722026EDEB3 (BitHelper_t2BEA51BB52EB1672DBF4163ED6757DCEEB3A4DF1* __this, int32_t* ___bitArrayPtr0, int32_t ___length1, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
+		int32_t* L_0 = ___bitArrayPtr0;
+		__this->____arrayPtr_1 = L_0;
+		int32_t L_1 = ___length1;
+		__this->____length_0 = L_1;
+		__this->____useStackAlloc_3 = (bool)1;
+		return;
+	}
+}
+// System.Void System.Collections.Generic.BitHelper::.ctor(System.Int32[],System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BitHelper__ctor_m795A92E9A03F57547FD78A8E50F730C2778DDD19 (BitHelper_t2BEA51BB52EB1672DBF4163ED6757DCEEB3A4DF1* __this, Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* ___bitArray0, int32_t ___length1, const RuntimeMethod* method) 
+{
+	{
+		Object__ctor_mE837C6B9FA8C6D5D109F4B2EC885D79919AC0EA2(__this, NULL);
+		Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* L_0 = ___bitArray0;
+		__this->____array_2 = L_0;
+		Il2CppCodeGenWriteBarrier((void**)(&__this->____array_2), (void*)L_0);
+		int32_t L_1 = ___length1;
+		__this->____length_0 = L_1;
+		return;
+	}
+}
+// System.Void System.Collections.Generic.BitHelper::MarkBit(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void BitHelper_MarkBit_m12EFF71C5444F4E4D076F514C0C0723B39E50F86 (BitHelper_t2BEA51BB52EB1672DBF4163ED6757DCEEB3A4DF1* __this, int32_t ___bitPosition0, const RuntimeMethod* method) 
+{
+	int32_t V_0 = 0;
+	int32_t V_1 = 0;
+	{
+		int32_t L_0 = ___bitPosition0;
+		V_0 = ((int32_t)(L_0/((int32_t)32)));
+		int32_t L_1 = V_0;
+		int32_t L_2 = __this->____length_0;
+		if ((((int32_t)L_1) >= ((int32_t)L_2)))
+		{
+			goto IL_0046;
+		}
+	}
+	{
+		int32_t L_3 = V_0;
+		if ((((int32_t)L_3) < ((int32_t)0)))
+		{
+			goto IL_0046;
+		}
+	}
+	{
+		int32_t L_4 = ___bitPosition0;
+		V_1 = ((int32_t)(1<<((int32_t)(((int32_t)(L_4%((int32_t)32)))&((int32_t)31)))));
+		bool L_5 = __this->____useStackAlloc_3;
+		if (!L_5)
+		{
+			goto IL_0035;
+		}
+	}
+	{
+		int32_t* L_6 = __this->____arrayPtr_1;
+		int32_t L_7 = V_0;
+		int32_t* L_8 = ((int32_t*)il2cpp_codegen_add((intptr_t)L_6, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_7), 4))));
+		int32_t L_9 = *((int32_t*)L_8);
+		int32_t L_10 = V_1;
+		*((int32_t*)L_8) = (int32_t)((int32_t)(L_9|L_10));
+		return;
+	}
+
+IL_0035:
+	{
+		Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* L_11 = __this->____array_2;
+		int32_t L_12 = V_0;
+		NullCheck(L_11);
+		int32_t* L_13 = ((L_11)->GetAddressAt(static_cast<il2cpp_array_size_t>(L_12)));
+		int32_t L_14 = *((int32_t*)L_13);
+		int32_t L_15 = V_1;
+		*((int32_t*)L_13) = (int32_t)((int32_t)(L_14|L_15));
+	}
+
+IL_0046:
+	{
+		return;
+	}
+}
+// System.Boolean System.Collections.Generic.BitHelper::IsMarked(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool BitHelper_IsMarked_m0A02826959B4EF6381B8F6C7DF0EDBFC55EE8EF2 (BitHelper_t2BEA51BB52EB1672DBF4163ED6757DCEEB3A4DF1* __this, int32_t ___bitPosition0, const RuntimeMethod* method) 
+{
+	int32_t V_0 = 0;
+	int32_t V_1 = 0;
+	{
+		int32_t L_0 = ___bitPosition0;
+		V_0 = ((int32_t)(L_0/((int32_t)32)));
+		int32_t L_1 = V_0;
+		int32_t L_2 = __this->____length_0;
+		if ((((int32_t)L_1) >= ((int32_t)L_2)))
+		{
+			goto IL_0044;
+		}
+	}
+	{
+		int32_t L_3 = V_0;
+		if ((((int32_t)L_3) < ((int32_t)0)))
+		{
+			goto IL_0044;
+		}
+	}
+	{
+		int32_t L_4 = ___bitPosition0;
+		V_1 = ((int32_t)(1<<((int32_t)(((int32_t)(L_4%((int32_t)32)))&((int32_t)31)))));
+		bool L_5 = __this->____useStackAlloc_3;
+		if (!L_5)
+		{
+			goto IL_0036;
+		}
+	}
+	{
+		int32_t* L_6 = __this->____arrayPtr_1;
+		int32_t L_7 = V_0;
+		int32_t L_8 = *((int32_t*)((int32_t*)il2cpp_codegen_add((intptr_t)L_6, ((intptr_t)il2cpp_codegen_multiply(((intptr_t)L_7), 4)))));
+		int32_t L_9 = V_1;
+		return (bool)((!(((uint32_t)((int32_t)(L_8&L_9))) <= ((uint32_t)0)))? 1 : 0);
+	}
+
+IL_0036:
+	{
+		Int32U5BU5D_t19C97395396A72ECAF310612F0760F165060314C* L_10 = __this->____array_2;
+		int32_t L_11 = V_0;
+		NullCheck(L_10);
+		int32_t L_12 = L_11;
+		int32_t L_13 = (L_10)->GetAt(static_cast<il2cpp_array_size_t>(L_12));
+		int32_t L_14 = V_1;
+		return (bool)((!(((uint32_t)((int32_t)(L_13&L_14))) <= ((uint32_t)0)))? 1 : 0);
+	}
+
+IL_0044:
+	{
+		return (bool)0;
+	}
+}
+// System.Int32 System.Collections.Generic.BitHelper::ToIntArrayLength(System.Int32)
+IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR int32_t BitHelper_ToIntArrayLength_m59204C3775D26A8B9532246C2F384C92D02E713C (int32_t ___n0, const RuntimeMethod* method) 
+{
+	{
+		int32_t L_0 = ___n0;
+		if ((((int32_t)L_0) > ((int32_t)0)))
+		{
+			goto IL_0006;
+		}
+	}
+	{
+		return 0;
+	}
+
+IL_0006:
+	{
+		int32_t L_1 = ___n0;
+		return ((int32_t)il2cpp_codegen_add(((int32_t)(((int32_t)il2cpp_codegen_subtract(L_1, 1))/((int32_t)32))), 1));
 	}
 }
 #ifdef __clang__
