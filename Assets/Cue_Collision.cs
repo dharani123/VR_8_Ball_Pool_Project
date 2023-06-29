@@ -33,16 +33,17 @@ public class Cue_Collision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.CompareTag("cue_ball"));
+        if (other.CompareTag("cue_ball"))
+        {
 
-        Rigidbody cueRB = other.gameObject.GetComponent<Rigidbody>();
-        Vector3 accelarationAlongPlane = new Vector3(accelaration.x, 0, accelaration.z);
+            Rigidbody cueRB = other.gameObject.GetComponent<Rigidbody>();
+            Vector3 accelarationAlongPlane = new Vector3(accelaration.x, 0, accelaration.z);
 
-        float magnitude = accelarationAlongPlane.magnitude;
-        Vector3 direction = -this.transform.forward;
+            float magnitude = accelarationAlongPlane.magnitude;
+            Vector3 direction = -this.transform.forward;
 
 
-        cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
-
+            cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
+        }
     }
 }

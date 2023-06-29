@@ -180,6 +180,7 @@ Library: lib_burst_generated
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.Services.Core.Device.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.XR.Management.dll
+--root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.Services.Core.Threading.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\UnityEngine.SpatialTracking.dll
@@ -188,7 +189,6 @@ Library: lib_burst_generated
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.Services.Core.Registration.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.Subsystem.Registration.dll
---root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Core.ShaderLibrary.dll
 --root-assembly=D:\Dessetation\VR_8_Ball_Pool_Project\Temp\StagingArea\Data\Managed\Unity.RenderPipelines.Universal.Shaders.dll
