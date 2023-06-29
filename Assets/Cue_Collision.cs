@@ -8,8 +8,8 @@ public class Cue_Collision : MonoBehaviour
     private Vector3 prevPosition;
     private Vector3 currPosition;
     private Vector3 prevVelocity;
-    public Vector3 currVelocity;
-    public Vector3 accelaration;
+    private Vector3 currVelocity;
+    private Vector3 accelaration;
 
     // Start is called before the first frame update
     void Start()
@@ -32,7 +32,6 @@ public class Cue_Collision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collision");
 
         if (other.CompareTag("cue_ball"));
 
