@@ -9,7 +9,7 @@ public class Collision_Testing : MonoBehaviour
     {
         Rigidbody rb = GetComponent<Rigidbody>();
 
-        rb.AddForce(new Vector3(0f, 0f, 50f), ForceMode.Impulse);
+        rb.AddForce(new Vector3(0f, 0f, 30f), ForceMode.Impulse);
     }
 
     // Update is called once per frame
