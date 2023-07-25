@@ -7,13 +7,16 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
 
     private GameObject spawnedPlayerPrefab;
+    private GameObject spawnedCuePrefab;
 
     public override void OnJoinedRoom()
     {
         base.OnJoinedRoom();
 
         spawnedPlayerPrefab = PhotonNetwork.Instantiate("NetworkPlayerPrefab", transform.position, transform.rotation);
-    
+        spawnedCuePrefab = PhotonNetwork.Instantiate("NetworkCue", transform.position, transform.rotation);
+
+
     }
 
 
@@ -21,7 +24,8 @@ public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
     {
         Debug.Log("Left Room");
         PhotonNetwork.Destroy(spawnedPlayerPrefab);
-        
+        PhotonNetwork.Destroy(spawnedCuePrefab);
+
         base.OnLeftRoom();
     }
 }

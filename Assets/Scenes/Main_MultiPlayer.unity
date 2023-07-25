@@ -3007,7 +3007,7 @@ GameObject:
   - component: {fileID: 7740842283816670301}
   - component: {fileID: 7740842283816670300}
   m_Layer: 7
-  m_Name: Cue001
+  m_Name: Cue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
