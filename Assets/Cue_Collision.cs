@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Cue_Collision : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Cue_Collision : MonoBehaviour
     private Vector3 currVelocity;
     private Vector3 accelaration;
 
+    public PhotonView balls;
 
     public AudioSource audioSource;
     public AudioClip cueHit;
@@ -49,7 +51,11 @@ public class Cue_Collision : MonoBehaviour
 
             cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
 
+            balls.RequestOwnership();
+            
+
             audioSource.PlayOneShot(cueHit);
+
         }
     }
 }
