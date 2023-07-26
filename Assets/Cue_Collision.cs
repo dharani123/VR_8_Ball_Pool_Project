@@ -11,6 +11,10 @@ public class Cue_Collision : MonoBehaviour
     private Vector3 currVelocity;
     private Vector3 accelaration;
 
+
+    public AudioSource audioSource;
+    public AudioClip cueHit;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,6 +48,8 @@ public class Cue_Collision : MonoBehaviour
 
 
             cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
+
+            audioSource.PlayOneShot(cueHit);
         }
     }
 }
