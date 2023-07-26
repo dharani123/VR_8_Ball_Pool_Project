@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - cue_ball
+  - solid
+  - stripe
+  - black
   layers:
   - Default
   - TransparentFX

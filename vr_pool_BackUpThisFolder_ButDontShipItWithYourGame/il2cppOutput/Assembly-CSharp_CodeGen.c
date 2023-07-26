@@ -40,11 +40,19 @@ extern void AnimateHandOnInput_Start_mDFB567101BCB7DCE653AE7E320015E93D3609592 (
 extern void AnimateHandOnInput_Update_mC03CF4BE3804324BBC246D79B71F83B1A8848CDD (void);
 // 0x0000000E System.Void AnimateHandOnInput::.ctor()
 extern void AnimateHandOnInput__ctor_mEA43A853FB1CB874A55072BFBF7A8B78BEF60F1C (void);
-// 0x0000000F System.Void Readme::.ctor()
+// 0x0000000F System.Void SoundOnCollision::Start()
+extern void SoundOnCollision_Start_m4AC525EED7F91489F84F625549959293BFF8E045 (void);
+// 0x00000010 System.Void SoundOnCollision::Update()
+extern void SoundOnCollision_Update_m21F57D81C4EBBAB2A0BFB5032FB7B4526E8F4263 (void);
+// 0x00000011 System.Void SoundOnCollision::OnCollisionEnter(UnityEngine.Collision)
+extern void SoundOnCollision_OnCollisionEnter_mC050BA61610F13ED249335D5713392814AE706F6 (void);
+// 0x00000012 System.Void SoundOnCollision::.ctor()
+extern void SoundOnCollision__ctor_m132EF7518BB16F1CCCA8EBC239298D51439C174E (void);
+// 0x00000013 System.Void Readme::.ctor()
 extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
-// 0x00000010 System.Void Readme/Section::.ctor()
+// 0x00000014 System.Void Readme/Section::.ctor()
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
-static Il2CppMethodPointer s_methodPointers[16] = 
+static Il2CppMethodPointer s_methodPointers[20] = 
 {
 	Collision_Testing_Start_m67CD0CEB789888972C733F85DA8E9B51176482B9,
 	Collision_Testing_Update_m8F2F2227D7EFAA25D4E67E76C92F617C32B14A66,
@@ -60,10 +68,14 @@ static Il2CppMethodPointer s_methodPointers[16] =
 	AnimateHandOnInput_Start_mDFB567101BCB7DCE653AE7E320015E93D3609592,
 	AnimateHandOnInput_Update_mC03CF4BE3804324BBC246D79B71F83B1A8848CDD,
 	AnimateHandOnInput__ctor_mEA43A853FB1CB874A55072BFBF7A8B78BEF60F1C,
+	SoundOnCollision_Start_m4AC525EED7F91489F84F625549959293BFF8E045,
+	SoundOnCollision_Update_m21F57D81C4EBBAB2A0BFB5032FB7B4526E8F4263,
+	SoundOnCollision_OnCollisionEnter_mC050BA61610F13ED249335D5713392814AE706F6,
+	SoundOnCollision__ctor_m132EF7518BB16F1CCCA8EBC239298D51439C174E,
 	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
 	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
 };
-static const int32_t s_InvokerIndices[16] = 
+static const int32_t s_InvokerIndices[20] = 
 {
 	6660,
 	6660,
@@ -78,6 +90,10 @@ static const int32_t s_InvokerIndices[16] =
 	6660,
 	6660,
 	6660,
+	6660,
+	6660,
+	6660,
+	5246,
 	6660,
 	6660,
 	6660,
@@ -86,7 +102,7 @@ IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	16,
+	20,
 	s_methodPointers,
 	0,
 	NULL,

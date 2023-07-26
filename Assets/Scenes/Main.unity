@@ -1208,6 +1208,7 @@ GameObject:
   - component: {fileID: 1574678980}
   - component: {fileID: 1574678983}
   - component: {fileID: 1574678982}
+  - component: {fileID: 1574678984}
   m_Layer: 8
   m_Name: Cue_hit_point
   m_TagString: Untagged
@@ -1242,6 +1243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 878055880fdba3841aaa2be6a501e0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 1574678984}
+  cueHit: {fileID: 8300000, guid: fb001c7eb27f8ab49bb9a98f418bfcd0, type: 3}
 --- !u!136 &1574678983
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1256,6 +1259,102 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &1574678984
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574678979}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1633857942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1568,6 +1667,8 @@ GameObject:
   - component: {fileID: 1808574831}
   - component: {fileID: 1808574830}
   - component: {fileID: 1808574834}
+  - component: {fileID: 1808574836}
+  - component: {fileID: 1808574835}
   m_Layer: 6
   m_Name: cue_ball
   m_TagString: cue_ball
@@ -1681,6 +1782,116 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 647f492b00b47114f9a3d285b4fb0be3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1808574835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808574828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5156cd243eb0f8f4588621e0bc8ce8f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioSource: {fileID: 1808574836}
+  ballHit: {fileID: 8300000, guid: 2ee8989eb97c5d54aa31f301027716c7, type: 3}
+--- !u!82 &1808574836
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808574828}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1856738251 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5686134208185362930, guid: 1fd3a7c43c8190f4d8c167ebde694364,
@@ -2079,7 +2290,7 @@ GameObject:
   - component: {fileID: 8639465342882400428}
   m_Layer: 0
   m_Name: Ball14
-  m_TagString: Untagged
+  m_TagString: stripe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2114,7 +2325,7 @@ GameObject:
   - component: {fileID: 7749946800250168375}
   m_Layer: 0
   m_Name: Ball13
-  m_TagString: Untagged
+  m_TagString: stripe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2226,7 +2437,7 @@ GameObject:
   - component: {fileID: 6956031016394744999}
   m_Layer: 0
   m_Name: Ball2
-  m_TagString: Untagged
+  m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2588,7 +2799,7 @@ GameObject:
   - component: {fileID: 6179026962808044841}
   m_Layer: 0
   m_Name: Ball10
-  m_TagString: Untagged
+  m_TagString: stripe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2608,7 +2819,7 @@ GameObject:
   - component: {fileID: 7425493294370001326}
   m_Layer: 0
   m_Name: Ball5
-  m_TagString: Untagged
+  m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2743,7 +2954,7 @@ GameObject:
   - component: {fileID: 6507303443198232313}
   m_Layer: 0
   m_Name: Ball6
-  m_TagString: Untagged
+  m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3139,7 +3350,7 @@ GameObject:
   - component: {fileID: 8499570777224636514}
   m_Layer: 0
   m_Name: Ball7
-  m_TagString: Untagged
+  m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3262,7 +3473,7 @@ GameObject:
   - component: {fileID: 8808000094166510226}
   m_Layer: 0
   m_Name: Ball3
-  m_TagString: Untagged
+  m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3613,7 +3824,7 @@ GameObject:
   - component: {fileID: 6159611851019065147}
   m_Layer: 0
   m_Name: Ball12
-  m_TagString: Untagged
+  m_TagString: stripe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3794,7 +4005,7 @@ GameObject:
   - component: {fileID: 7037539786381133402}
   m_Layer: 0
   m_Name: Ball11
-  m_TagString: Untagged
+  m_TagString: stripe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4306,7 +4517,7 @@ GameObject:
   - component: {fileID: 8328500561922096033}
   m_Layer: 0
   m_Name: Ball4
-  m_TagString: Untagged
+  m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4517,7 +4728,7 @@ GameObject:
   - component: {fileID: 8177499027181549542}
   m_Layer: 0
   m_Name: Ball9
-  m_TagString: Untagged
+  m_TagString: stripe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4537,7 +4748,7 @@ GameObject:
   - component: {fileID: 4565996447293892369}
   m_Layer: 0
   m_Name: Ball1
-  m_TagString: Untagged
+  m_TagString: solid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4628,7 +4839,7 @@ GameObject:
   - component: {fileID: 8918478147190187411}
   m_Layer: 0
   m_Name: Ball15
-  m_TagString: Untagged
+  m_TagString: stripe
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4703,7 +4914,7 @@ GameObject:
   - component: {fileID: 8262655056488773460}
   m_Layer: 0
   m_Name: Ball8
-  m_TagString: Untagged
+  m_TagString: black
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
