@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using TMPro;
 
 
 public class NetworkManagerScript : MonoBehaviourPunCallbacks
 {
+    public GameObject panel;
+    public GameObject RoomsUI;
+    public TMP_InputField roomName;
     // Start is called before the first frame update
     void Start()
     {
-        ConnectToServer();
+
     }
 
     // Update is called once per frame
@@ -19,7 +23,7 @@ public class NetworkManagerScript : MonoBehaviourPunCallbacks
         
     }
 
-    void ConnectToServer()
+    public void ConnectToServer()
     {
         PhotonNetwork.ConnectUsingSettings();
         Debug.Log("Connecting to the Server");
@@ -29,14 +33,22 @@ public class NetworkManagerScript : MonoBehaviourPunCallbacks
     {
         Debug.Log("Conncted to Master.");
         base.OnConnectedToMaster();
+        panel.SetActive(false);
+        RoomsUI.SetActive(true);
+    }
 
+    public void JoinRoom()
+    {
 
         RoomOptions roomOptions = new RoomOptions();
+
+        PhotonNetwork.LoadLevel(2);
         roomOptions.MaxPlayers = 2;
         roomOptions.IsVisible = true;
         roomOptions.IsOpen = true;
 
-        PhotonNetwork.JoinOrCreateRoom("Test", roomOptions, TypedLobby.Default);
+        PhotonNetwork.JoinOrCreateRoom(roomName.text, roomOptions, TypedLobby.Default);
+
     }
 
     public override void OnJoinedRoom()
