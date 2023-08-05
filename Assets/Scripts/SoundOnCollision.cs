@@ -26,6 +26,7 @@ public class SoundOnCollision : MonoBehaviour
             || col.CompareTag("solid")
             || col.CompareTag("black")) {
             audioSource.PlayOneShot(ballHit);
+
         }
     }
 }

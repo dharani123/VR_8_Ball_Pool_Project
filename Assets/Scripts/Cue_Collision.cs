@@ -17,6 +17,8 @@ public class Cue_Collision : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip cueHit;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -51,7 +53,11 @@ public class Cue_Collision : MonoBehaviour
 
             cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
 
-            balls.RequestOwnership();
+            if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
+            {
+                balls.RequestOwnership();
+            }
+            
             
 
             audioSource.PlayOneShot(cueHit);

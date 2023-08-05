@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using Photon.Pun;
 public class ButtonInputHandler : MonoBehaviour
 {
 
     public InputActionProperty buttonA;
     public InputActionProperty buttonB;
     public InputActionProperty buttonY;
+    public PhotonView balls;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,10 +36,20 @@ public class ButtonInputHandler : MonoBehaviour
     }
 
     private void ResetCueBall() {
+        if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
+        {
+            balls.RequestOwnership();
+        }
+
         GameObject.Find("cue_ball").GetComponent<ResetScript>().Reset();
     }
 
-    private void ResetAllBalls() { 
+    private void ResetAllBalls() {
+        if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
+        {
+            balls.RequestOwnership();
+        }
+
         GameObject[] solids = GameObject.FindGameObjectsWithTag("solid");
         foreach (GameObject solid in solids) {
             solid.GetComponent<ResetScript>().Reset();
@@ -58,7 +69,12 @@ public class ButtonInputHandler : MonoBehaviour
 
 
     private void ResetCueStick() {
+        if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
+        {
+            balls.RequestOwnership();
+        }
 
         GameObject.Find("Cue").GetComponent<ResetScript>().Reset();
     }
+
 }
