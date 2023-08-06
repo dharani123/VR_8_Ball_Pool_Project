@@ -3,7 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Photon.Pun;
-public class ButtonInputHandler : MonoBehaviour
+using Photon.Realtime;
+using ExitGames.Client.Photon;
+using System;
+
+public class ButtonInputHandler : MonoBehaviourPun
 {
 
     public InputActionProperty buttonA;
@@ -16,16 +20,47 @@ public class ButtonInputHandler : MonoBehaviour
        
     }
 
+    private void OnEnable()
+    {
+        PhotonNetwork.NetworkingClient.EventReceived += NetworkingClient_EventReceived;
+    }
+
+    private void OnDisable()
+    {
+        PhotonNetwork.NetworkingClient.EventReceived -= NetworkingClient_EventReceived;
+    }
+
+    private void NetworkingClient_EventReceived(EventData obj)
+    {
+        if (obj.Code == 1) {
+            ResetAllBalls();
+        }
+
+        if (obj.Code == 2)
+        {
+            ResetCueBall();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (buttonA.action.ReadValue<float>() == 1) {
             ResetCueBall();
+
+            if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
+            {
+                PhotonNetwork.RaiseEvent(2, null, RaiseEventOptions.Default, SendOptions.SendUnreliable);
+            }
         }
 
         if (buttonB.action.ReadValue<float>() == 1)
         {
             ResetAllBalls();
+            if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer) {
+
+                PhotonNetwork.RaiseEvent(1, null, RaiseEventOptions.Default, SendOptions.SendUnreliable);
+            }
         }
 
         if (buttonY.action.ReadValue<float>() == 1)
@@ -69,10 +104,6 @@ public class ButtonInputHandler : MonoBehaviour
 
 
     private void ResetCueStick() {
-        if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
-        {
-            balls.RequestOwnership();
-        }
 
         GameObject.Find("Cue").GetComponent<ResetScript>().Reset();
     }

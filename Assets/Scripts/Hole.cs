@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Photon.Pun;
+using Photon.Realtime;
+using ExitGames.Client.Photon;
 public class Hole : MonoBehaviour
 {
     public Transform SolidsPosition;
@@ -48,6 +50,10 @@ public class Hole : MonoBehaviour
         if (other.CompareTag("cue_ball")) {
             audioSource.PlayOneShot(pottingSound);
             GameObject.Find("cue_ball").GetComponent<ResetScript>().Reset();
+            if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
+            {
+                PhotonNetwork.RaiseEvent(2, null, RaiseEventOptions.Default, SendOptions.SendUnreliable);
+            }
         }
     }
 }
