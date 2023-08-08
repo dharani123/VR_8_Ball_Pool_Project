@@ -3166,6 +3166,7 @@ MonoBehaviour:
   balls: {fileID: 0}
   audioSource: {fileID: 1574678984}
   cueHit: {fileID: 8300000, guid: fb001c7eb27f8ab49bb9a98f418bfcd0, type: 3}
+  rightHandController: {fileID: 290078132}
 --- !u!136 &1574678983
 CapsuleCollider:
   m_ObjectHideFlags: 0

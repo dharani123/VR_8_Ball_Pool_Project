@@ -4,16 +4,24 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.XR.Interaction.Toolkit;
 public class Hole : MonoBehaviour
 {
     public Transform SolidsPosition;
     public Transform StripesPosition;
     public AudioSource audioSource;
     public AudioClip pottingSound;
+
+    private XRBaseController rightHandController;
+    private XRBaseController leftHandController;
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject rightHand = GameObject.Find("RightHand Controller");
+        rightHandController = rightHand.GetComponent<XRBaseController>();
+
+        GameObject leftHand = GameObject.Find("LeftHand Controller");
+        leftHandController = leftHand.GetComponent<XRBaseController>();
     }
 
     // Update is called once per frame
@@ -30,6 +38,8 @@ public class Hole : MonoBehaviour
             other.CompareTag("black"))
         {
             audioSource.PlayOneShot(pottingSound);
+            SendVibration();
+
 
             int ballNumber = int.Parse(other.gameObject.name.Substring(4));
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -49,11 +59,20 @@ public class Hole : MonoBehaviour
 
         if (other.CompareTag("cue_ball")) {
             audioSource.PlayOneShot(pottingSound);
+            SendVibration();
+
+
             GameObject.Find("cue_ball").GetComponent<ResetScript>().Reset();
             if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
             {
                 PhotonNetwork.RaiseEvent(2, null, RaiseEventOptions.Default, SendOptions.SendUnreliable);
             }
         }
+    }
+
+    private void SendVibration() {
+        leftHandController.SendHapticImpulse(0.3f, 1f);
+        rightHandController.SendHapticImpulse(0.3f, 1f);
+
     }
 }

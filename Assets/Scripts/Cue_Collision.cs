@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-
+using UnityEngine.XR.Interaction.Toolkit;
 public class Cue_Collision : MonoBehaviour
 {
 
@@ -16,12 +16,16 @@ public class Cue_Collision : MonoBehaviour
 
     public AudioSource audioSource;
     public AudioClip cueHit;
+    private XRBaseController rightHandController;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
+        GameObject rightHand = GameObject.Find("RightHand Controller");
+        rightHandController = rightHand.GetComponent<XRBaseController>();
+
         prevPosition = this.transform.position;
     }
 
@@ -61,7 +65,7 @@ public class Cue_Collision : MonoBehaviour
             
 
             audioSource.PlayOneShot(cueHit);
-
+            rightHandController.SendHapticImpulse(1, 0.1f);
         }
     }
 }
