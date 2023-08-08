@@ -21,4 +21,10 @@ public class SceneNavigator : MonoBehaviour
 
         SceneManager.LoadScene(1);
     }
+
+    public void LoadPlayWithComputerMode()
+    {
+
+        SceneManager.LoadScene(3);
+    }
 }
