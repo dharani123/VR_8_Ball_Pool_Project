@@ -3166,7 +3166,6 @@ MonoBehaviour:
   balls: {fileID: 0}
   audioSource: {fileID: 1574678984}
   cueHit: {fileID: 8300000, guid: fb001c7eb27f8ab49bb9a98f418bfcd0, type: 3}
-  rightHandController: {fileID: 290078132}
 --- !u!136 &1574678983
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5398,7 +5397,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909782691098092936}
   m_LocalRotation: {x: -0.56098557, y: 0.56098557, z: -0.4304593, w: -0.4304593}
-  m_LocalPosition: {x: 0.029, y: 0.0123, z: 1.338}
+  m_LocalPosition: {x: 0.034, y: 0.0167, z: 1.3249}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5429,7 +5428,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 909782692513132896}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 0.0257, y: -0.0369, z: 0.35}
+  m_LocalPosition: {x: 0.0342, y: -0.0445, z: 0.3609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7020,7 +7019,7 @@ Transform:
   m_GameObject: {fileID: 3775882061089545908}
   m_LocalRotation: {x: -0.0038603274, y: -0.675581, z: -0.0035373387, w: 0.7372672}
   m_LocalPosition: {x: 2.08, y: 0.752, z: -1.04}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 0.65}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 909782691098092939}
