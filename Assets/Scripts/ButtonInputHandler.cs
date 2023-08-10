@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using Photon.Pun;
 using Photon.Realtime;
 using ExitGames.Client.Photon;
+using UnityEngine.SceneManagement;
 using System;
 
 public class ButtonInputHandler : MonoBehaviourPun
@@ -13,6 +14,7 @@ public class ButtonInputHandler : MonoBehaviourPun
     public InputActionProperty buttonA;
     public InputActionProperty buttonB;
     public InputActionProperty buttonY;
+    public InputActionProperty buttonX;
     public PhotonView balls;
     // Start is called before the first frame update
     void Start()
@@ -68,6 +70,19 @@ public class ButtonInputHandler : MonoBehaviourPun
             ResetCueStick();
         }
 
+
+        if (buttonX.action.ReadValue<float>() == 1) {
+            LoadLandingMenu();
+        }
+
+    }
+
+    private void LoadLandingMenu()
+    {
+        if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer) {
+            PhotonNetwork.Disconnect();
+        }
+        SceneManager.LoadScene(0);
     }
 
     private void ResetCueBall() {

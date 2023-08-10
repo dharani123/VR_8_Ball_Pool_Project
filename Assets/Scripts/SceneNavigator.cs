@@ -27,4 +27,9 @@ public class SceneNavigator : MonoBehaviour
 
         SceneManager.LoadScene(3);
     }
+
+    public void LoadLandingScene()
+    {
+        SceneManager.LoadScene(0);
+    }
 }
