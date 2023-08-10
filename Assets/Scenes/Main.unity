@@ -166,7 +166,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5060043
 GameObject:
@@ -1831,7 +1831,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &534965554
 GameObject:
@@ -2935,7 +2935,7 @@ RectTransform:
   m_Children:
   - {fileID: 534965555}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -3166,7 +3166,6 @@ MonoBehaviour:
   balls: {fileID: 0}
   audioSource: {fileID: 1574678984}
   cueHit: {fileID: 8300000, guid: fb001c7eb27f8ab49bb9a98f418bfcd0, type: 3}
-  rightHandController: {fileID: 290078132}
 --- !u!136 &1574678983
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4730,6 +4729,19 @@ MonoBehaviour:
       m_Flags: 0
     m_Reference: {fileID: 7810973643982284458, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
+  buttonX:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Button X
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: d5f5d68e-794c-41c3-bb37-8fdd20852228
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 793621385283939461, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
   balls: {fileID: 0}
 --- !u!4 &2000213905
 Transform:
@@ -4744,7 +4756,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2017644624
 GameObject:
