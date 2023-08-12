@@ -55,15 +55,22 @@ public class Cue_Collision : MonoBehaviour
             Vector3 direction = -this.transform.forward;
 
 
-            cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
+            if (GameMode.Instance.gameType == GameMode.GameType.Computer) {
+                if (GameFlowManager.Instance.playersTurn)
+                {
+                    GameFlowManager.Instance.onPlayerHitCue();
+                }
+                else {
+                    return;
+                }
+            }
 
             if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
             {
                 balls.RequestOwnership();
             }
-            
-            
 
+            cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
             audioSource.PlayOneShot(cueHit);
             rightHandController.SendHapticImpulse(1, 0.1f);
         }
