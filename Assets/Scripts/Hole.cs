@@ -48,11 +48,19 @@ public class Hole : MonoBehaviour
 
             if (ballNumber <= 7) {
                 other.gameObject.transform.position = SolidsPosition.position + (-SolidsPosition.transform.up) * 0.1f * (ballNumber - 1);
+                if (GameMode.Instance.gameType == GameMode.GameType.Computer)
+                {
+                    GameFlowManager.Instance.SolidPotted();
+                }
             }
 
             if (ballNumber >= 9)
             {
                 other.gameObject.transform.position = StripesPosition.position + (-StripesPosition.transform.up) * 0.1f * (ballNumber - 9);
+                if (GameMode.Instance.gameType == GameMode.GameType.Computer)
+                {
+                    GameFlowManager.Instance.StripePotted();
+                }
             }
 
         }
