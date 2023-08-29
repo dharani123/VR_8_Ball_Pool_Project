@@ -26,12 +26,33 @@ public class GameFlowManager : MonoBehaviour
     public int StripesPottedThisTurn = 0;
     public int SolidsPottedThisTurn = 0;
 
+    public GameObject youWinText;
+    public GameObject computerWinsText;
+
 
     public List<Transform> holes;
 
+
+    public AudioSource audioSource;
+    public AudioClip yourTurn;
+    public AudioClip computerTurn;
+    public AudioClip win;
+
     void Start()
     {
-         
+
+    }
+
+    public void ResetGame()
+    {
+        playersTurn = true;
+        ballsMoving = false;
+        checkBallsTimer = 1f;
+        totalStripesPotted = 0;
+        totalSolidsPotted = 0;
+        StripesPottedThisTurn = 0;
+        SolidsPottedThisTurn = 0;
+
     }
 
     // Update is called once per frame
@@ -39,7 +60,7 @@ public class GameFlowManager : MonoBehaviour
     {
         checkBallsTimer -= Time.deltaTime;
 
-        if(checkBallsTimer < 0)
+        if (checkBallsTimer < 0)
         {
             checkBallsTimer = 0;
         }
@@ -48,7 +69,8 @@ public class GameFlowManager : MonoBehaviour
 
         if (ballsMoving && checkBallsTimer == 0)
         {
-            if (checkAllBallsStopped()) {
+            if (checkAllBallsStopped())
+            {
                 ballsMoving = false;
                 Debug.Log("Update Turn");
                 UpdateTurn();
@@ -57,7 +79,8 @@ public class GameFlowManager : MonoBehaviour
     }
 
 
-    public void onPlayerHitCue() {
+    public void onPlayerHitCue()
+    {
         Debug.Log("Player hit the ball");
         ballsMoving = true;
         ResetBallsPotted();
@@ -65,9 +88,11 @@ public class GameFlowManager : MonoBehaviour
     }
 
 
-    private void UpdateTurn() {
+    private void UpdateTurn()
+    {
 
-        if (playersTurn && SolidsPottedThisTurn > 0) {
+        if (playersTurn && SolidsPottedThisTurn > 0)
+        {
             playersTurn = true;
         }
         else if (!playersTurn && StripesPottedThisTurn > 0)
@@ -80,10 +105,20 @@ public class GameFlowManager : MonoBehaviour
         }
 
         Debug.Log(playersTurn ? "Now is Players Turn" : "Now is computers turn");
+        Debug.Log(totalStripesPotted);
+        if (playersTurn)
+        {
+            audioSource.PlayOneShot(yourTurn);
+        }
+        else
+        {
+            audioSource.PlayOneShot(computerTurn);
+        }
 
-        if (!playersTurn) {
+        if (!playersTurn)
+        {
             ComputerHitTheCue();
-        
+
         }
     }
 
@@ -94,7 +129,14 @@ public class GameFlowManager : MonoBehaviour
 
         List<GameObject> stripesThatCanBeHit = new List<GameObject>();
 
-        foreach (GameObject stripe in stripes) {
+        if (totalStripesPotted == 7)
+        {
+            HitBlackBall(white);
+            return;
+        }
+
+        foreach (GameObject stripe in stripes)
+        {
             Vector3 direction = (stripe.transform.position - white.transform.position).normalized;
             Vector3 directionPerpendicular = Vector3.Cross(direction, new Vector3(0, 1, 0));
 
@@ -103,14 +145,14 @@ public class GameFlowManager : MonoBehaviour
             //Debug.DrawLine(white.transform.position, white.transform.position + distance * direction + directionPerpendicular*0.03f, Color.red, 10f);
             //Debug.DrawLine(white.transform.position, white.transform.position + distance * direction - directionPerpendicular*0.03f, Color.red, 10f);
 
-
             bool isValid = true;
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(white.transform.position, (distance * direction + directionPerpendicular * 0.03f).normalized, out hit, Mathf.Infinity))
             {
                 //Debug.DrawRay(white.transform.position, (distance * direction + directionPerpendicular * 0.03f).normalized * hit.distance, Color.blue, 40f);
-                if (!(UnityEngine.Object.ReferenceEquals(hit.collider.gameObject, stripe))) {
+                if (!(UnityEngine.Object.ReferenceEquals(hit.collider.gameObject, stripe)))
+                {
                     isValid = false;
                 }
             }
@@ -125,13 +167,15 @@ public class GameFlowManager : MonoBehaviour
                 }
             }
 
-            if (isValid) {
+            if (isValid)
+            {
                 stripesThatCanBeHit.Add(stripe);
             }
         }
 
-        if (stripesThatCanBeHit.Count == 0) {
-            white.GetComponent<Rigidbody>().AddForce((new Vector3(UnityEngine.Random.Range(-1f,1f), 0, UnityEngine.Random.Range(-1f, 1f))) * 10, ForceMode.Impulse);
+        if (stripesThatCanBeHit.Count == 0)
+        {
+            white.GetComponent<Rigidbody>().AddForce((new Vector3(UnityEngine.Random.Range(-1f, 1f), 0, UnityEngine.Random.Range(-1f, 1f))) * 10, ForceMode.Impulse);
 
             ballsMoving = true;
             ResetBallsPotted();
@@ -140,17 +184,20 @@ public class GameFlowManager : MonoBehaviour
             return;
         }
 
+
         GameObject aboutToHitStripe = stripesThatCanBeHit[0];
 
         float closestDistance = Mathf.Infinity;
         Vector3 closestHole = Vector3.zero;
 
-        foreach (Transform hole in holes) {
+        foreach (Transform hole in holes)
+        {
 
             float dist = Vector3.Distance(hole.position, aboutToHitStripe.transform.position);
-            if (dist < closestDistance) {
+            if (dist < closestDistance)
+            {
                 closestDistance = dist;
-                closestHole = new Vector3(hole.position.x, aboutToHitStripe.transform.position.y, hole.position.z) ;
+                closestHole = new Vector3(hole.position.x, aboutToHitStripe.transform.position.y, hole.position.z);
             }
 
         }
@@ -168,11 +215,44 @@ public class GameFlowManager : MonoBehaviour
 
     }
 
-    private bool checkAllBallsStopped() {
+    private void HitBlackBall(GameObject white)
+    {
+        GameObject aboutToHitBlack = GameObject.FindGameObjectWithTag("black");
+
+        float closestDist = Mathf.Infinity;
+        Vector3 closeHole = Vector3.zero;
+
+        foreach (Transform hole in holes)
+        {
+
+            float dist = Vector3.Distance(hole.position, aboutToHitBlack.transform.position);
+            if (dist < closestDist)
+            {
+                closestDist = dist;
+                closeHole = new Vector3(hole.position.x, aboutToHitBlack.transform.position.y, hole.position.z);
+            }
+
+        }
+
+        Vector3 holeDirec = (closeHole - aboutToHitBlack.transform.position).normalized;
+
+        Vector3 hittingPoint = aboutToHitBlack.transform.position - 0.06f * holeDirec;
+
+        Vector3 forceDir = hittingPoint - white.transform.position;
+        white.GetComponent<Rigidbody>().AddForce((new Vector3(forceDir.x, 0, forceDir.z)) * 10, ForceMode.Impulse);
+
+        ballsMoving = true;
+        ResetBallsPotted();
+        checkBallsTimer = 1f;
+    }
+
+    private bool checkAllBallsStopped()
+    {
         GameObject[] solids = GameObject.FindGameObjectsWithTag("solid");
         foreach (GameObject solid in solids)
         {
-            if (solid.GetComponent<Rigidbody>().velocity.magnitude > 0) {
+            if (solid.GetComponent<Rigidbody>().velocity.magnitude > 0)
+            {
                 return false;
             }
         }
@@ -204,21 +284,51 @@ public class GameFlowManager : MonoBehaviour
         return true;
     }
 
-    public void SolidPotted() {
+    public void SolidPotted()
+    {
 
         totalSolidsPotted++;
         SolidsPottedThisTurn++;
-    
+
     }
 
 
-    public void StripePotted() {
-        totalSolidsPotted++;
+    public void StripePotted()
+    {
+        totalStripesPotted++;
         StripesPottedThisTurn++;
     }
 
-    private void ResetBallsPotted() {
+    private void ResetBallsPotted()
+    {
         SolidsPottedThisTurn = 0;
         StripesPottedThisTurn = 0;
+    }
+
+
+    public void CheckWhoWins()
+    {
+        audioSource.PlayOneShot(win);
+        if (playersTurn)
+        {
+            if (totalSolidsPotted == 7)
+            {
+                Instantiate(youWinText);
+            }
+            else
+            {
+                Instantiate(computerWinsText);
+            }
+        }
+        else {
+            if (totalStripesPotted == 7)
+            {
+                Instantiate(computerWinsText);
+            }
+            else {
+                Instantiate(youWinText);
+            }
+        
+        }
     }
 }

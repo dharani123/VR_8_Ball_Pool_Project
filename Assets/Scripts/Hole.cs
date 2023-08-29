@@ -63,6 +63,14 @@ public class Hole : MonoBehaviour
                 }
             }
 
+            if (ballNumber == 8) {
+                if (GameMode.Instance.gameType == GameMode.GameType.Computer){
+
+                    GameFlowManager.Instance.CheckWhoWins();
+                }
+            
+            }
+
         }
 
         if (other.CompareTag("cue_ball")) {
