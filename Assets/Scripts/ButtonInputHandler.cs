@@ -63,6 +63,11 @@ public class ButtonInputHandler : MonoBehaviourPun
 
                 PhotonNetwork.RaiseEvent(1, null, RaiseEventOptions.Default, SendOptions.SendUnreliable);
             }
+
+            if (GameMode.Instance.gameType == GameMode.GameType.Computer) {
+
+                GameFlowManager.Instance.ResetGame();
+            }
         }
 
         if (buttonY.action.ReadValue<float>() == 1)
