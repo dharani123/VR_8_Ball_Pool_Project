@@ -2400,10 +2400,13 @@ MonoBehaviour:
 
 
     Complete your balls and
-    hit black to win
+    pot black to win
 
 
-    No fouls are there'
+    Gain one more chance when you pot solid
+
+    No fouls
+    are there'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
