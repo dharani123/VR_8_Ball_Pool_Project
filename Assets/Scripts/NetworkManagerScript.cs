@@ -8,6 +8,7 @@ using TMPro;
 
 public class NetworkManagerScript : MonoBehaviourPunCallbacks
 {
+    // This class handles network things like Create Server, Join Room, Disconnect Server and Leave Room.
     public GameObject panel;
     public GameObject RoomsUI;
     public TMP_InputField roomName;

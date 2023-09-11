@@ -5,6 +5,7 @@ using Photon.Pun;
 using UnityEngine.XR.Interaction.Toolkit;
 public class Cue_Collision : MonoBehaviour
 {
+    // This class handles the interaction of cue stick with white ball
 
     private Vector3 prevPosition;
     private Vector3 currPosition;
@@ -32,6 +33,7 @@ public class Cue_Collision : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // calculate acceleration
         currPosition = this.transform.position;
         
         currVelocity = (currPosition - prevPosition) / Time.deltaTime;
@@ -49,6 +51,7 @@ public class Cue_Collision : MonoBehaviour
         {
 
             Rigidbody cueRB = other.gameObject.GetComponent<Rigidbody>();
+            // accelaration along pool table plane 
             Vector3 accelarationAlongPlane = new Vector3(accelaration.x, 0, accelaration.z);
 
             float magnitude = accelarationAlongPlane.magnitude;
@@ -70,6 +73,7 @@ public class Cue_Collision : MonoBehaviour
                 balls.RequestOwnership();
             }
 
+            // apply force
             cueRB.AddForce((new Vector3(direction.x, 0, direction.z)) * magnitude / 5, ForceMode.Impulse);
             audioSource.PlayOneShot(cueHit);
             rightHandController.SendHapticImpulse(1, 0.1f);

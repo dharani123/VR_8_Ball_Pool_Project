@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundOnCollision : MonoBehaviour
 {
-
+    // SOund when white ball collides with other balls.
     public AudioSource audioSource;
     public AudioClip ballHit;
     // Start is called before the first frame update

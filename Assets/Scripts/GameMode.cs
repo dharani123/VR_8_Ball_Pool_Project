@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameMode : MonoBehaviour
 {
-
+    // This class us used to set the Game Mode in the current scene.
     #region Singelton
 
     public static GameMode Instance;

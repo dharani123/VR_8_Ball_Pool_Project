@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 public class NetworkCue : MonoBehaviour
 {
+    // This class handles the position and rotaation of Network Cue Stick
 
     private Transform stickTransform;
     private PhotonView photonView;
