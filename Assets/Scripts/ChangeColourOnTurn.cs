@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ChangeColourOnTurn : MonoBehaviour
 {
+    // THis class changes the colour of diamonds around table based on turn.
 
     public Material Green;
     public Material Red;

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneNavigator : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Navigate between scenes.
     void Start()
     {
         

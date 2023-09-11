@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class AnimateHandOnInput : MonoBehaviour
 {
+    // This class handles the animations of VR Hands based on the values of Grip, Pinch values.
 
     public InputActionProperty pinchAction;
     public InputActionProperty gripAction;

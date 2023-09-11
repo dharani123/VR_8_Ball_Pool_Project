@@ -15,6 +15,7 @@ public class GameFlowManager : MonoBehaviour
 
     #endregion
 
+    // This class handles the flow of the game like updating turn, AI, tracking potted balls and checking win condition.
 
     public bool playersTurn = true;
     private bool ballsMoving = false;
@@ -66,7 +67,7 @@ public class GameFlowManager : MonoBehaviour
         }
 
 
-
+        // If balls started moving, after 1 second checks when all balls stop and update turn 
         if (ballsMoving && checkBallsTimer == 0)
         {
             if (checkAllBallsStopped())
@@ -90,7 +91,7 @@ public class GameFlowManager : MonoBehaviour
 
     private void UpdateTurn()
     {
-
+        // if players turn and potted solids retain turn
         if (playersTurn && SolidsPottedThisTurn > 0)
         {
             playersTurn = true;
@@ -129,6 +130,7 @@ public class GameFlowManager : MonoBehaviour
 
         List<GameObject> stripesThatCanBeHit = new List<GameObject>();
 
+        // if all the strips are potted hit the black ball
         if (totalStripesPotted == 7)
         {
             HitBlackBall(white);
@@ -147,7 +149,7 @@ public class GameFlowManager : MonoBehaviour
 
             bool isValid = true;
             RaycastHit hit;
-            // Does the ray intersect any objects excluding the player layer
+            // Draw Raycast from white ball to the left edge of the stripe
             if (Physics.Raycast(white.transform.position, (distance * direction + directionPerpendicular * 0.03f).normalized, out hit, Mathf.Infinity))
             {
                 //Debug.DrawRay(white.transform.position, (distance * direction + directionPerpendicular * 0.03f).normalized * hit.distance, Color.blue, 40f);
@@ -157,7 +159,7 @@ public class GameFlowManager : MonoBehaviour
                 }
             }
 
-            // Does the ray intersect any objects excluding the player layer
+            // Draw Raycast from white ball to the right edge of the stripe
             if (Physics.Raycast(white.transform.position, (distance * direction - directionPerpendicular * 0.03f).normalized, out hit, Mathf.Infinity))
             {
                 //Debug.DrawRay(white.transform.position, (distance * direction - directionPerpendicular * 0.03f).normalized * hit.distance, Color.blue, 40f);
@@ -166,13 +168,14 @@ public class GameFlowManager : MonoBehaviour
                     isValid = false;
                 }
             }
-
+            // if there are no balls between them then make the stipe as valid to hit.
             if (isValid)
             {
                 stripesThatCanBeHit.Add(stripe);
             }
         }
 
+        // if no stipes can be hit apply random force.
         if (stripesThatCanBeHit.Count == 0)
         {
             white.GetComponent<Rigidbody>().AddForce((new Vector3(UnityEngine.Random.Range(-1f, 1f), 0, UnityEngine.Random.Range(-1f, 1f))) * 10, ForceMode.Impulse);
@@ -190,6 +193,7 @@ public class GameFlowManager : MonoBehaviour
         float closestDistance = Mathf.Infinity;
         Vector3 closestHole = Vector3.zero;
 
+        // get the closet hole
         foreach (Transform hole in holes)
         {
 
@@ -202,8 +206,10 @@ public class GameFlowManager : MonoBehaviour
 
         }
 
+        // target direction of the stripe.
         Vector3 holeDirection = (closestHole - aboutToHitStripe.transform.position).normalized;
 
+        // target point of the white ball.
         Vector3 hitPoint = aboutToHitStripe.transform.position - 0.06f * holeDirection;
 
         Vector3 forceDirection = hitPoint - white.transform.position;
@@ -217,6 +223,7 @@ public class GameFlowManager : MonoBehaviour
 
     private void HitBlackBall(GameObject white)
     {
+        // similar logic of hitting the stripe applied on black
         GameObject aboutToHitBlack = GameObject.FindGameObjectWithTag("black");
 
         float closestDist = Mathf.Infinity;

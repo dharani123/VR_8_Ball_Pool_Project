@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DestroyAfterSomeSeconds : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // Destory the text after 10 seconds.
 
     private float timer = 10f;
     void Start()

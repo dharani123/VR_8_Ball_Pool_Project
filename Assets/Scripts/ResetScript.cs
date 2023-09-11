@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ResetScript : MonoBehaviour
 {
-    // Start is called before the first frame update
+    // This class is used to reset an GameObject to its initial position and rotation.
     private Vector3 initialPosition;
     private Quaternion initialRotation;
     void Start()

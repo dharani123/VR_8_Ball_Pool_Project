@@ -7,6 +7,8 @@ using ExitGames.Client.Photon;
 using UnityEngine.XR.Interaction.Toolkit;
 public class Hole : MonoBehaviour
 {
+    // This class handles the positioning of the potted balls under the table.
+
     public Transform SolidsPosition;
     public Transform StripesPosition;
     public AudioSource audioSource;
@@ -45,7 +47,7 @@ public class Hole : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
             other.gameObject.GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 
-
+            // set the solid under the table at its position
             if (ballNumber <= 7) {
                 other.gameObject.transform.position = SolidsPosition.position + (-SolidsPosition.transform.up) * 0.1f * (ballNumber - 1);
                 if (GameMode.Instance.gameType == GameMode.GameType.Computer)
@@ -53,7 +55,7 @@ public class Hole : MonoBehaviour
                     GameFlowManager.Instance.SolidPotted();
                 }
             }
-
+            // set the stripe under the table at its position
             if (ballNumber >= 9)
             {
                 other.gameObject.transform.position = StripesPosition.position + (-StripesPosition.transform.up) * 0.1f * (ballNumber - 9);

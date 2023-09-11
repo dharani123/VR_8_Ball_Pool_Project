@@ -5,7 +5,7 @@ using Photon.Pun;
 
 public class NetworkPlayerSpawner : MonoBehaviourPunCallbacks
 {
-
+    // This class spawns the network player.
     private GameObject spawnedPlayerPrefab;
     private GameObject spawnedCuePrefab;
 

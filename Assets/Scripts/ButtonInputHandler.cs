@@ -10,6 +10,7 @@ using System;
 
 public class ButtonInputHandler : MonoBehaviourPun
 {
+    // This class handles the user inputs
 
     public InputActionProperty buttonA;
     public InputActionProperty buttonB;
@@ -50,6 +51,7 @@ public class ButtonInputHandler : MonoBehaviourPun
         if (buttonA.action.ReadValue<float>() == 1) {
             ResetCueBall();
 
+            // Reset in all instances if multiplayer
             if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
             {
                 PhotonNetwork.RaiseEvent(2, null, RaiseEventOptions.Default, SendOptions.SendUnreliable);
@@ -91,10 +93,6 @@ public class ButtonInputHandler : MonoBehaviourPun
     }
 
     private void ResetCueBall() {
-        if (GameMode.Instance.gameType == GameMode.GameType.Multiplayer)
-        {
-            balls.RequestOwnership();
-        }
 
         GameObject.Find("cue_ball").GetComponent<ResetScript>().Reset();
     }

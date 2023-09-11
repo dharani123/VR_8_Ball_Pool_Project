@@ -7,7 +7,7 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class NetworkPlayer : MonoBehaviour
 {
-
+    // THis classes handles the position,rotation and animations of Network Player.
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
